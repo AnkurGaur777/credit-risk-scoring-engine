@@ -1,0 +1,9 @@
+# Lean runtime set for the Docker scoring service
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+lightgbm>=4.3
+joblib>=1.3
+fastapi>=0.110
+pydantic>=2.6
+uvicorn>=0.27

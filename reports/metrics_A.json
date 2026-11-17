@@ -1,0 +1,1009 @@
+{
+  "stage": "A",
+  "source": "synthetic",
+  "version": "0.1.0",
+  "n_trials": 12,
+  "audit": {
+    "rows": 20000,
+    "columns": 37,
+    "target_rate": 0.0817,
+    "imbalance_ratio": 11.239902080783354,
+    "id_unique": true,
+    "duplicate_rows": 0,
+    "missing_over_50pct": {
+      "FLOORSMAX_AVG": 0.679,
+      "EXT_SOURCE_1": 0.561
+    },
+    "missing_top15": {
+      "FLOORSMAX_AVG": 0.679,
+      "EXT_SOURCE_1": 0.561,
+      "APARTMENTS_AVG": 0.498,
+      "YEARS_BEGINEXPLUATATION_AVG": 0.495,
+      "OCCUPATION_TYPE": 0.438,
+      "EXT_SOURCE_3": 0.2,
+      "AMT_REQ_CREDIT_BUREAU_DAY": 0.135,
+      "AMT_REQ_CREDIT_BUREAU_YEAR": 0.135,
+      "AMT_REQ_CREDIT_BUREAU_QRT": 0.135,
+      "AMT_REQ_CREDIT_BUREAU_MON": 0.135,
+      "AMT_REQ_CREDIT_BUREAU_WEEK": 0.135,
+      "AMT_REQ_CREDIT_BUREAU_HOUR": 0.135,
+      "EXT_SOURCE_2": 0.003,
+      "AMT_GOODS_PRICE": 0.001,
+      "FLAG_OWN_CAR": 0.0
+    },
+    "sentinel_days_employed": 3684,
+    "xna_counts": {
+      "CODE_GENDER": 22,
+      "ORGANIZATION_TYPE": 3684,
+      "NAME_FAMILY_STATUS": 0,
+      "NAME_INCOME_TYPE": 0
+    },
+    "negative_income": 0,
+    "age_range": [
+      20.999315537303218,
+      68.99931553730322
+    ],
+    "cardinality": {
+      "NAME_CONTRACT_TYPE": 2,
+      "CODE_GENDER": 3,
+      "FLAG_OWN_CAR": 2,
+      "FLAG_OWN_REALTY": 2,
+      "NAME_INCOME_TYPE": 5,
+      "NAME_EDUCATION_TYPE": 5,
+      "NAME_FAMILY_STATUS": 5,
+      "NAME_HOUSING_TYPE": 5,
+      "OCCUPATION_TYPE": 10,
+      "ORGANIZATION_TYPE": 8
+    },
+    "feature_dictionary_size": 40
+  },
+  "split": {
+    "train": 12000,
+    "valid": 4000,
+    "test": 4000,
+    "default_rate": [
+      0.08166666666666667,
+      0.08175,
+      0.08175
+    ]
+  },
+  "n_features": 53,
+  "excluded_by_policy": [
+    "AGE_YEARS",
+    "CODE_GENDER",
+    "DAYS_BIRTH",
+    "EMPLOYED_TO_AGE_RATIO"
+  ],
+  "scorecard": {
+    "report": {
+      "n_candidates": 53,
+      "n_after_iv": 21,
+      "n_final": 12,
+      "suspicious_iv": [],
+      "dropped_wrong_sign": [],
+      "coefficients": {
+        "EXT_SOURCE_WEIGHTED": -0.9592839786544235,
+        "ANNUITY_INCOME_RATIO": -0.34091835801948217,
+        "CREDIT_INCOME_RATIO": -0.5516689528640375,
+        "ANNUITY_CREDIT_RATIO": -0.678460785554261,
+        "AMT_REQ_CREDIT_BUREAU_YEAR": -0.976813167289269,
+        "EXT_SOURCE_1": -0.11427493903986236,
+        "DAYS_EMPLOYED": -0.8528444185331185,
+        "AMT_CREDIT": -0.8695408624040284,
+        "AMT_INCOME_TOTAL": -0.7215378818861728,
+        "NAME_EDUCATION_TYPE": -0.9835998908100307,
+        "INCOME_PER_FAMILY_MEMBER": -0.35519805877120403,
+        "FLAG_OWN_CAR": -0.7586288544726173
+      }
+    },
+    "valid": {
+      "auc": 0.7108980235140138,
+      "gini": 0.42179604702802753,
+      "ks": 0.31545678814990963,
+      "pr_auc": 0.1924070701519932,
+      "brier": 0.07144274032762989
+    },
+    "test": {
+      "auc": 0.6827473146883073,
+      "gini": 0.3654946293766146,
+      "ks": 0.2862486897110995,
+      "pr_auc": 0.16752644166458347,
+      "brier": 0.07292966373186331
+    },
+    "base_score": 600,
+    "base_odds": 50,
+    "pdo": 20,
+    "test_ci": {
+      "auc": [
+        0.6569166410011337,
+        0.7174925806659533
+      ],
+      "ks": [
+        0.24997139050156003,
+        0.351536645363885
+      ],
+      "pr_auc": [
+        0.14399564555690736,
+        0.20327843406169063
+      ]
+    }
+  },
+  "imbalance_comparison": [
+    {
+      "strategy": "none",
+      "auc": 0.6873623624248691,
+      "gini": 0.3747247248497383,
+      "ks": 0.28894628210988355,
+      "pr_auc": 0.17744243696495265,
+      "brier": 0.07204673328798254,
+      "best_iter": 81,
+      "mean_pred": 0.0789653315589731
+    },
+    {
+      "strategy": "class_weight",
+      "auc": 0.6917326286289487,
+      "gini": 0.3834652572578974,
+      "ks": 0.29123757046835697,
+      "pr_auc": 0.1817184163698653,
+      "brier": 0.16011345316573786,
+      "best_iter": 158,
+      "mean_pred": 0.33999255597087946
+    },
+    {
+      "strategy": "undersample",
+      "auc": 0.6899517180916032,
+      "gini": 0.3799034361832063,
+      "ks": 0.27508615227576055,
+      "pr_auc": 0.17817896197559147,
+      "brier": 0.08698890054970376,
+      "best_iter": 115,
+      "mean_pred": 0.1828891266930716
+    }
+  ],
+  "gbm": {
+    "imbalance_strategy": "class_weight",
+    "params": {
+      "num_leaves": 12,
+      "min_child_samples": 46,
+      "colsample_bytree": 0.586807200888729,
+      "subsample": 0.8329916975562257,
+      "reg_lambda": 0.02940389593470934,
+      "learning_rate": 0.03764308030155562
+    },
+    "best_iteration": 215,
+    "valid": {
+      "auc": 0.6992367645209984,
+      "gini": 0.39847352904199673,
+      "ks": 0.30007052039388177,
+      "pr_auc": 0.19009246764915239,
+      "brier": 0.17534999305934934
+    },
+    "test_raw": {
+      "auc": 0.6930356323647812,
+      "gini": 0.3860712647295623,
+      "ks": 0.3132079618940096,
+      "pr_auc": 0.1799964236151566,
+      "brier": 0.17496589088792405
+    },
+    "test": {
+      "auc": 0.6930356323647812,
+      "gini": 0.3860712647295623,
+      "ks": 0.3132079618940096,
+      "pr_auc": 0.1799964236151566,
+      "brier": 0.07177099064752963
+    },
+    "test_ci": {
+      "auc": [
+        0.6705416415196154,
+        0.7267082656075161
+      ],
+      "ks": [
+        0.2743242768927381,
+        0.37836567433458246
+      ],
+      "pr_auc": [
+        0.15630242872076328,
+        0.22009382731561974
+      ]
+    }
+  },
+  "xgboost": {
+    "valid": {
+      "auc": 0.7040091718141558,
+      "gini": 0.4080183436283116,
+      "ks": 0.31382324608620144,
+      "pr_auc": 0.18856524444942746,
+      "brier": 0.07173950225114822
+    },
+    "test": {
+      "auc": 0.6936176129471114,
+      "gini": 0.3872352258942229,
+      "ks": 0.3089459324219801,
+      "pr_auc": 0.1720840566596551,
+      "brier": 0.07250114530324936
+    }
+  },
+  "calibration": {
+    "chosen": "platt",
+    "table": [
+      {
+        "method": "raw",
+        "brier": 0.17496589088792405,
+        "ece": 0.2848456344225013,
+        "mean_pred": 0.36659563442250126,
+        "model": "LightGBM"
+      },
+      {
+        "method": "platt",
+        "brier": 0.07177099064752963,
+        "ece": 0.008903484875276719,
+        "mean_pred": 0.08128013975429113,
+        "model": "LightGBM"
+      },
+      {
+        "method": "isotonic",
+        "brier": 0.07235430084069733,
+        "ece": 0.010070837294855818,
+        "mean_pred": 0.08113437226330271,
+        "model": "LightGBM"
+      },
+      {
+        "method": "scorecard (logistic, raw)",
+        "brier": 0.07292966373186331,
+        "ece": 0.013928982873802585,
+        "mean_pred": 0.08202438223791383,
+        "model": "Scorecard"
+      }
+    ],
+    "observed_default_rate_test": 0.08175,
+    "class_weight_arm": [
+      {
+        "method": "raw",
+        "brier": 0.15993635448957708,
+        "ece": 0.25777975103156,
+        "mean_pred": 0.33952975103155997
+      },
+      {
+        "method": "platt",
+        "brier": 0.07182276569282452,
+        "ece": 0.0052287311068553825,
+        "mean_pred": 0.0817112356801319
+      },
+      {
+        "method": "isotonic",
+        "brier": 0.07197414077528753,
+        "ece": 0.008830839991388431,
+        "mean_pred": 0.08139587237519297
+      }
+    ]
+  },
+  "explain": {
+    "top10": [
+      {
+        "feature": "ANNUITY_INCOME_RATIO",
+        "mean_abs_shap": 0.24532994531348812
+      },
+      {
+        "feature": "EXT_SOURCE_MEAN",
+        "mean_abs_shap": 0.19233725855054237
+      },
+      {
+        "feature": "EXT_SOURCE_WEIGHTED",
+        "mean_abs_shap": 0.16120528989008137
+      },
+      {
+        "feature": "NAME_EDUCATION_TYPE",
+        "mean_abs_shap": 0.13780709429327276
+      },
+      {
+        "feature": "BUREAU_ENQUIRIES_TOTAL",
+        "mean_abs_shap": 0.12188138855987683
+      },
+      {
+        "feature": "CREDIT_INCOME_RATIO",
+        "mean_abs_shap": 0.1175788980743167
+      },
+      {
+        "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+        "mean_abs_shap": 0.114061157855451
+      },
+      {
+        "feature": "EXT_SOURCE_2",
+        "mean_abs_shap": 0.11359899518374031
+      },
+      {
+        "feature": "YEARS_EMPLOYED",
+        "mean_abs_shap": 0.10064535985349804
+      },
+      {
+        "feature": "DAYS_EMPLOYED",
+        "mean_abs_shap": 0.06714258968710385
+      }
+    ],
+    "spearman_shap_vs_iv": 0.8382543192145663,
+    "examples": [
+      {
+        "label": "low risk",
+        "pd": 0.02491910898134157,
+        "score": 592.926826575461,
+        "reason_codes": [
+          {
+            "feature": "NAME_EDUCATION_TYPE",
+            "reason": "Education level",
+            "impact_log_odds": 0.072
+          },
+          {
+            "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+            "reason": "Many credit enquiries in the last year",
+            "impact_log_odds": 0.072
+          },
+          {
+            "feature": "APARTMENTS_AVG",
+            "reason": "Risk factor: Apartments Avg",
+            "impact_log_odds": 0.068
+          },
+          {
+            "feature": "CREDIT_GOODS_RATIO",
+            "reason": "Loan amount exceeds the price of the goods financed",
+            "impact_log_odds": 0.061
+          }
+        ]
+      },
+      {
+        "label": "medium risk",
+        "pd": 0.0781359379513695,
+        "score": 558.3327935133665,
+        "reason_codes": [
+          {
+            "feature": "CREDIT_INCOME_RATIO",
+            "reason": "Loan amount is high relative to income",
+            "impact_log_odds": 0.12
+          },
+          {
+            "feature": "ANNUITY_INCOME_RATIO",
+            "reason": "High instalment relative to income",
+            "impact_log_odds": 0.102
+          },
+          {
+            "feature": "EXT_SOURCE_WEIGHTED",
+            "reason": "Low overall external credit score",
+            "impact_log_odds": 0.085
+          },
+          {
+            "feature": "FLAG_OWN_CAR",
+            "reason": "Risk factor: Flag Own Car",
+            "impact_log_odds": 0.082
+          }
+        ]
+      },
+      {
+        "label": "high risk",
+        "pd": 0.2648398219597414,
+        "score": 516.5816473171834,
+        "reason_codes": [
+          {
+            "feature": "ANNUITY_INCOME_RATIO",
+            "reason": "High instalment relative to income",
+            "impact_log_odds": 0.654
+          },
+          {
+            "feature": "EXT_SOURCE_2",
+            "reason": "Low external credit score (source 2)",
+            "impact_log_odds": 0.29
+          },
+          {
+            "feature": "CREDIT_INCOME_RATIO",
+            "reason": "Loan amount is high relative to income",
+            "impact_log_odds": 0.174
+          },
+          {
+            "feature": "EXT_SOURCE_MEAN",
+            "reason": "Low overall external credit score",
+            "impact_log_odds": 0.173
+          }
+        ]
+      }
+    ]
+  },
+  "business": {
+    "assumptions": {
+      "margin_rate": 0.1,
+      "lgd": 0.7,
+      "cost_per_application": 0.0
+    },
+    "cutoff_pd": 0.13606718200253407,
+    "valid_best": {
+      "approval_rate": 0.83825,
+      "profit": 95873000.0,
+      "pd_cutoff": 0.13606718200253407
+    },
+    "test": {
+      "profit": 87535500.0,
+      "approval_rate": 0.8375,
+      "bad_rate_approved": 0.0617910447761194
+    },
+    "baselines_test": {
+      "approve_all": 67674300.0,
+      "approve_top_70pct": 90650800.0
+    },
+    "uplift_vs_approve_all_abs": 19861200.0,
+    "uplift_vs_approve_all_pct": 0.29348216383472014,
+    "sensitivity": [
+      {
+        "lgd_change": -0.2,
+        "margin_change": -0.2,
+        "lgd": 0.5599999999999999,
+        "margin": 0.08000000000000002,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 76698400.00000001
+      },
+      {
+        "lgd_change": -0.2,
+        "margin_change": 0.0,
+        "lgd": 0.5599999999999999,
+        "margin": 0.1,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 111498820.0
+      },
+      {
+        "lgd_change": -0.2,
+        "margin_change": 0.2,
+        "lgd": 0.5599999999999999,
+        "margin": 0.12,
+        "best_approval_rate": 0.896,
+        "best_pd_cutoff": 0.1635326609012608,
+        "profit": 147572480.0
+      },
+      {
+        "lgd_change": 0.0,
+        "margin_change": -0.2,
+        "lgd": 0.7,
+        "margin": 0.08000000000000002,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 61072580.00000001
+      },
+      {
+        "lgd_change": 0.0,
+        "margin_change": 0.0,
+        "lgd": 0.7,
+        "margin": 0.1,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 95873000.0
+      },
+      {
+        "lgd_change": 0.0,
+        "margin_change": 0.2,
+        "lgd": 0.7,
+        "margin": 0.12,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 130673420.0
+      },
+      {
+        "lgd_change": 0.2,
+        "margin_change": -0.2,
+        "lgd": 0.84,
+        "margin": 0.08000000000000002,
+        "best_approval_rate": 0.71075,
+        "best_pd_cutoff": 0.09953061518204802,
+        "profit": 49425640.00000001
+      },
+      {
+        "lgd_change": 0.2,
+        "margin_change": 0.0,
+        "lgd": 0.84,
+        "margin": 0.1,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 80247180.0
+      },
+      {
+        "lgd_change": 0.2,
+        "margin_change": 0.2,
+        "lgd": 0.84,
+        "margin": 0.12,
+        "best_approval_rate": 0.83825,
+        "best_pd_cutoff": 0.13606718200253407,
+        "profit": 115047600.0
+      }
+    ],
+    "score_bands": [
+      {
+        "band": 1,
+        "applicants": 400,
+        "score_min": 506.50117326632926,
+        "score_max": 534.1630414689968,
+        "mean_pd": 0.20973059309445405,
+        "bads": 86,
+        "bad_rate": 0.215,
+        "share": 0.1,
+        "cum_approval_rate": 0.9999999999999999,
+        "cum_bad_rate": 0.08175,
+        "lift": 2.6299694189602447,
+        "capture_rate_of_defaults": 0.26299694189602446
+      },
+      {
+        "band": 2,
+        "applicants": 400,
+        "score_min": 534.1704212989955,
+        "score_max": 543.8714070635006,
+        "mean_pd": 0.14164963950199094,
+        "bads": 55,
+        "bad_rate": 0.1375,
+        "share": 0.1,
+        "cum_approval_rate": 0.8999999999999999,
+        "cum_bad_rate": 0.06694444444444445,
+        "lift": 1.6819571865443426,
+        "capture_rate_of_defaults": 0.16819571865443425
+      },
+      {
+        "band": 3,
+        "applicants": 400,
+        "score_min": 543.8766763393592,
+        "score_max": 551.3906449379604,
+        "mean_pd": 0.10924484993903592,
+        "bads": 49,
+        "bad_rate": 0.1225,
+        "share": 0.1,
+        "cum_approval_rate": 0.7999999999999999,
+        "cum_bad_rate": 0.058125,
+        "lift": 1.4984709480122322,
+        "capture_rate_of_defaults": 0.14984709480122324
+      },
+      {
+        "band": 4,
+        "applicants": 400,
+        "score_min": 551.4070252165012,
+        "score_max": 558.319307858921,
+        "mean_pd": 0.08715275715017323,
+        "bads": 30,
+        "bad_rate": 0.075,
+        "share": 0.1,
+        "cum_approval_rate": 0.7,
+        "cum_bad_rate": 0.048928571428571425,
+        "lift": 0.9174311926605504,
+        "capture_rate_of_defaults": 0.09174311926605505
+      },
+      {
+        "band": 5,
+        "applicants": 400,
+        "score_min": 558.3327935133665,
+        "score_max": 564.6047988257544,
+        "mean_pd": 0.07081187727802496,
+        "bads": 26,
+        "bad_rate": 0.065,
+        "share": 0.1,
+        "cum_approval_rate": 0.6,
+        "cum_bad_rate": 0.044583333333333336,
+        "lift": 0.7951070336391437,
+        "capture_rate_of_defaults": 0.07951070336391437
+      },
+      {
+        "band": 6,
+        "applicants": 400,
+        "score_min": 564.6160523283775,
+        "score_max": 570.4254618948628,
+        "mean_pd": 0.05830442170262787,
+        "bads": 18,
+        "bad_rate": 0.045,
+        "share": 0.1,
+        "cum_approval_rate": 0.5,
+        "cum_bad_rate": 0.0405,
+        "lift": 0.5504587155963302,
+        "capture_rate_of_defaults": 0.05504587155963303
+      },
+      {
+        "band": 7,
+        "applicants": 400,
+        "score_min": 570.4443992199161,
+        "score_max": 575.7878579429978,
+        "mean_pd": 0.048332651931661405,
+        "bads": 18,
+        "bad_rate": 0.045,
+        "share": 0.1,
+        "cum_approval_rate": 0.4,
+        "cum_bad_rate": 0.039375,
+        "lift": 0.5504587155963302,
+        "capture_rate_of_defaults": 0.05504587155963303
+      },
+      {
+        "band": 8,
+        "applicants": 400,
+        "score_min": 575.7911739853366,
+        "score_max": 583.2961125759239,
+        "mean_pd": 0.03943591523672535,
+        "bads": 18,
+        "bad_rate": 0.045,
+        "share": 0.1,
+        "cum_approval_rate": 0.30000000000000004,
+        "cum_bad_rate": 0.0375,
+        "lift": 0.5504587155963302,
+        "capture_rate_of_defaults": 0.05504587155963303
+      },
+      {
+        "band": 9,
+        "applicants": 400,
+        "score_min": 583.3314686122538,
+        "score_max": 592.8779635520972,
+        "mean_pd": 0.02972191612485669,
+        "bads": 21,
+        "bad_rate": 0.0525,
+        "share": 0.1,
+        "cum_approval_rate": 0.2,
+        "cum_bad_rate": 0.03375,
+        "lift": 0.6422018348623852,
+        "capture_rate_of_defaults": 0.06422018348623854
+      },
+      {
+        "band": 10,
+        "applicants": 400,
+        "score_min": 592.926826575461,
+        "score_max": 640.3848096612226,
+        "mean_pd": 0.018416775583360804,
+        "bads": 6,
+        "bad_rate": 0.015,
+        "share": 0.1,
+        "cum_approval_rate": 0.1,
+        "cum_bad_rate": 0.015,
+        "lift": 0.18348623853211007,
+        "capture_rate_of_defaults": 0.01834862385321101
+      }
+    ],
+    "riskiest_20pct_capture": 0.4311926605504587
+  },
+  "fairness": {
+    "gender": {
+      "table": [
+        {
+          "group": "F",
+          "n": 2603,
+          "default_rate": 0.07837111025739531,
+          "approval_rate": 0.8367268536304264,
+          "bad_rate_among_approved": 0.06014692378328742,
+          "false_decline_rate": 0.14672780325135473,
+          "false_approve_rate": 0.6421568627450981,
+          "mean_pd": 0.08124916266282663,
+          "mean_score": 563.9955703675163
+        },
+        {
+          "group": "M",
+          "n": 1394,
+          "default_rate": 0.08823529411764706,
+          "approval_rate": 0.8385939741750359,
+          "bad_rate_among_approved": 0.06501283147989735,
+          "false_decline_rate": 0.14004720692368214,
+          "false_approve_rate": 0.6178861788617886,
+          "mean_pd": 0.08139709763859301,
+          "mean_score": 563.9355516839029
+        }
+      ],
+      "gaps": {
+        "approval_rate_gap": 0.0018671205446094685,
+        "disparate_impact_ratio": 0.9977735106593792,
+        "false_decline_gap": 0.006680596327672594,
+        "false_approve_gap": 0.02427068388330944,
+        "mean_score_gap": 0.06001868361340712,
+        "four_fifths_rule_flag": false
+      }
+    },
+    "age_band": {
+      "table": [
+        {
+          "group": "30-39",
+          "n": 1110,
+          "default_rate": 0.08198198198198198,
+          "approval_rate": 0.8396396396396396,
+          "bad_rate_among_approved": 0.06330472103004292,
+          "false_decline_rate": 0.14327772325809618,
+          "false_approve_rate": 0.6483516483516484,
+          "mean_pd": 0.08076245721560184,
+          "mean_score": 564.0994588684306
+        },
+        {
+          "group": "40-49",
+          "n": 1376,
+          "default_rate": 0.08793604651162791,
+          "approval_rate": 0.845203488372093,
+          "bad_rate_among_approved": 0.0644883920894239,
+          "false_decline_rate": 0.13306772908366535,
+          "false_approve_rate": 0.6198347107438017,
+          "mean_pd": 0.0810323913486688,
+          "mean_score": 564.0387599826398
+        },
+        {
+          "group": "50-59",
+          "n": 774,
+          "default_rate": 0.060723514211886306,
+          "approval_rate": 0.8359173126614987,
+          "bad_rate_among_approved": 0.04636785162287481,
+          "false_decline_rate": 0.15130674002751032,
+          "false_approve_rate": 0.6382978723404256,
+          "mean_pd": 0.08128692495185784,
+          "mean_score": 563.8609273467661
+        },
+        {
+          "group": "60+",
+          "n": 256,
+          "default_rate": 0.0625,
+          "approval_rate": 0.84765625,
+          "bad_rate_among_approved": 0.041474654377880185,
+          "false_decline_rate": 0.13333333333333333,
+          "false_approve_rate": 0.5625,
+          "mean_pd": 0.08157796715651056,
+          "mean_score": 564.4229946352573
+        },
+        {
+          "group": "<30",
+          "n": 484,
+          "default_rate": 0.10743801652892562,
+          "approval_rate": 0.8078512396694215,
+          "bad_rate_among_approved": 0.08695652173913043,
+          "false_decline_rate": 0.1736111111111111,
+          "false_approve_rate": 0.6538461538461539,
+          "mean_pd": 0.08300335022163943,
+          "mean_score": 563.5018173084818
+        }
+      ],
+      "gaps": {
+        "approval_rate_gap": 0.03980501033057848,
+        "disparate_impact_ratio": 0.9530410938035572,
+        "false_decline_gap": 0.04054338202744576,
+        "false_approve_gap": 0.09134615384615385,
+        "mean_score_gap": 0.9211773267754779,
+        "four_fifths_rule_flag": false
+      }
+    },
+    "family_status": {
+      "table": [
+        {
+          "group": "Civil marriage",
+          "n": 369,
+          "default_rate": 0.07859078590785908,
+          "approval_rate": 0.8726287262872628,
+          "bad_rate_among_approved": 0.062111801242236024,
+          "false_decline_rate": 0.11176470588235295,
+          "false_approve_rate": 0.6896551724137931,
+          "mean_pd": 0.076295685966909,
+          "mean_score": 566.0062167199509
+        },
+        {
+          "group": "Married",
+          "n": 2578,
+          "default_rate": 0.08068269976726145,
+          "approval_rate": 0.8363072148952676,
+          "bad_rate_among_approved": 0.05844155844155844,
+          "false_decline_rate": 0.14345991561181434,
+          "false_approve_rate": 0.6057692307692307,
+          "mean_pd": 0.08240590528201042,
+          "mean_score": 563.3838265798719
+        },
+        {
+          "group": "Separated",
+          "n": 283,
+          "default_rate": 0.07420494699646643,
+          "approval_rate": 0.8657243816254417,
+          "bad_rate_among_approved": 0.05714285714285714,
+          "false_decline_rate": 0.1183206106870229,
+          "false_approve_rate": 0.6666666666666666,
+          "mean_pd": 0.07632385300548107,
+          "mean_score": 565.9342287682962
+        },
+        {
+          "group": "Single / not married",
+          "n": 559,
+          "default_rate": 0.08944543828264759,
+          "approval_rate": 0.7978533094812165,
+          "bad_rate_among_approved": 0.07174887892376682,
+          "false_decline_rate": 0.18664047151277013,
+          "false_approve_rate": 0.64,
+          "mean_pd": 0.08397121169676548,
+          "mean_score": 563.4693079934119
+        },
+        {
+          "group": "Widow",
+          "n": 211,
+          "default_rate": 0.09004739336492891,
+          "approval_rate": 0.8578199052132701,
+          "bad_rate_among_approved": 0.08287292817679558,
+          "false_decline_rate": 0.13541666666666666,
+          "false_approve_rate": 0.7894736842105263,
+          "mean_pd": 0.07576051819577785,
+          "mean_score": 566.467906389013
+        }
+      ],
+      "gaps": {
+        "approval_rate_gap": 0.07477541680604638,
+        "disparate_impact_ratio": 0.9143101590017667,
+        "false_decline_gap": 0.07487576563041719,
+        "false_approve_gap": 0.1837044534412956,
+        "mean_score_gap": 3.0840798091411443,
+        "four_fifths_rule_flag": false
+      }
+    }
+  },
+  "stability": {
+    "score_psi_valid_vs_test": 0.002390961630806051,
+    "feature_psi_train_vs_test": [
+      {
+        "feature": "EXT_SOURCE_WEIGHTED",
+        "psi": 0.0034989430939399873,
+        "status": "stable"
+      },
+      {
+        "feature": "ANNUITY_INCOME_RATIO",
+        "psi": 0.0033203229457162836,
+        "status": "stable"
+      },
+      {
+        "feature": "YEARS_EMPLOYED",
+        "psi": 0.0027258788710229995,
+        "status": "stable"
+      },
+      {
+        "feature": "DAYS_EMPLOYED",
+        "psi": 0.002708584902836187,
+        "status": "stable"
+      },
+      {
+        "feature": "CREDIT_INCOME_RATIO",
+        "psi": 0.002648361260684972,
+        "status": "stable"
+      },
+      {
+        "feature": "EXT_SOURCE_MEAN",
+        "psi": 0.002207032169442081,
+        "status": "stable"
+      },
+      {
+        "feature": "EXT_SOURCE_2",
+        "psi": 0.0020615366585322666,
+        "status": "stable"
+      },
+      {
+        "feature": "EXT_SOURCE_MIN",
+        "psi": 0.0018699687434057177,
+        "status": "stable"
+      },
+      {
+        "feature": "BUREAU_ENQUIRIES_TOTAL",
+        "psi": 0.0014644001484984983,
+        "status": "stable"
+      },
+      {
+        "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+        "psi": 0.0013698930745143806,
+        "status": "stable"
+      },
+      {
+        "feature": "FLAG_OWN_CAR",
+        "psi": 1.0958419582500806e-05,
+        "status": "stable"
+      }
+    ],
+    "shift_exercise_young_vs_all": {
+      "n_shifted": 964,
+      "score_psi": 0.004562523256985901,
+      "features": [
+        {
+          "feature": "DAYS_EMPLOYED",
+          "psi": 0.031683385517818095,
+          "status": "stable"
+        },
+        {
+          "feature": "YEARS_EMPLOYED",
+          "psi": 0.03129066668301104,
+          "status": "stable"
+        },
+        {
+          "feature": "EXT_SOURCE_MEAN",
+          "psi": 0.009855959167706617,
+          "status": "stable"
+        },
+        {
+          "feature": "EXT_SOURCE_MIN",
+          "psi": 0.008887648079003371,
+          "status": "stable"
+        },
+        {
+          "feature": "CREDIT_INCOME_RATIO",
+          "psi": 0.006500301928939869,
+          "status": "stable"
+        },
+        {
+          "feature": "EXT_SOURCE_2",
+          "psi": 0.005511396376521849,
+          "status": "stable"
+        },
+        {
+          "feature": "EXT_SOURCE_WEIGHTED",
+          "psi": 0.0047212091333843804,
+          "status": "stable"
+        },
+        {
+          "feature": "ANNUITY_INCOME_RATIO",
+          "psi": 0.004611630334187896,
+          "status": "stable"
+        },
+        {
+          "feature": "BUREAU_ENQUIRIES_TOTAL",
+          "psi": 0.0032499619221747936,
+          "status": "stable"
+        },
+        {
+          "feature": "AMT_REQ_CREDIT_BUREAU_YEAR",
+          "psi": 0.0012836075094380724,
+          "status": "stable"
+        },
+        {
+          "feature": "FLAG_OWN_CAR",
+          "psi": 0.0010810706674017072,
+          "status": "stable"
+        }
+      ]
+    },
+    "monitoring_plan": [
+      {
+        "What to track": "Score PSI (vs. training)",
+        "Frequency": "Monthly",
+        "Alert threshold": "<0.10 ok; 0.10-0.25 investigate; >0.25 escalate",
+        "Owner": "Model owner",
+        "Action / retrain trigger": "PSI > 0.25 two months running -> retrain review"
+      },
+      {
+        "What to track": "Feature PSI (top 10 by SHAP)",
+        "Frequency": "Monthly",
+        "Alert threshold": "Same thresholds",
+        "Owner": "Model owner",
+        "Action / retrain trigger": "Check upstream data/pipeline first, then population change"
+      },
+      {
+        "What to track": "Approval rate",
+        "Frequency": "Weekly",
+        "Alert threshold": "+/- 3 pts vs. 3-month average",
+        "Owner": "Credit risk team",
+        "Action / retrain trigger": "Check cut-off, channel mix, data feeds"
+      },
+      {
+        "What to track": "Bad rate by origination cohort",
+        "Frequency": "Monthly (labels mature in 6-12 months)",
+        "Alert threshold": "Observed > predicted by 20% relative",
+        "Owner": "Risk analytics",
+        "Action / retrain trigger": "Re-calibrate; consider retrain"
+      },
+      {
+        "What to track": "Calibration (predicted vs observed PD by decile)",
+        "Frequency": "Quarterly",
+        "Alert threshold": "ECE > 0.02 or Brier up > 5% relative",
+        "Owner": "Model owner",
+        "Action / retrain trigger": "Refit calibrator on recent matured cohorts"
+      },
+      {
+        "What to track": "Ranking power (AUC / KS on matured cohorts)",
+        "Frequency": "Quarterly",
+        "Alert threshold": "AUC drop > 0.02 vs. development",
+        "Owner": "Model validation",
+        "Action / retrain trigger": "Retrain challenger, champion-challenger test"
+      },
+      {
+        "What to track": "Fairness (approval & error rates by group)",
+        "Frequency": "Quarterly",
+        "Alert threshold": "Disparate-impact ratio < 0.8 or gap widening",
+        "Owner": "Compliance + risk",
+        "Action / retrain trigger": "Review features/proxies, document decision"
+      },
+      {
+        "What to track": "Data quality (missing rates, sentinel counts)",
+        "Frequency": "Daily",
+        "Alert threshold": "Missing rate change > 5 pts",
+        "Owner": "Data engineering",
+        "Action / retrain trigger": "Block scoring or fall back to manual review"
+      }
+    ]
+  },
+  "bundle": "C:\\Users\\ankur gaur\\code\\Projects\\DS\\credit-risk-scoring\\credit-risk-scoring\\credit-risk-scoring\\artifacts\\model_bundle_A.joblib",
+  "runtime_seconds": 38.8
+}

@@ -1,0 +1,8 @@
+{
+  "requests": 1000,
+  "mode": "in-process",
+  "p50_ms": 25.66,
+  "p95_ms": 29.36,
+  "p99_ms": 42.24,
+  "mean_ms": 26.32
+}

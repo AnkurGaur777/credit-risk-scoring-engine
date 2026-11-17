@@ -1,0 +1,19 @@
+# data and artifacts never committed
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+artifacts/*
+!artifacts/.gitkeep
+mlruns/
+mlflow.db
+logs/
+.env
+# python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+data/synthetic/

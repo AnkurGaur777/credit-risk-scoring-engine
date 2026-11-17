@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      CR_MODEL_BUNDLE: /app/artifacts/model_bundle_A.joblib
+      CR_AUDIT_LOG: /app/logs/audit.jsonl
+    volumes:
+      - ./logs:/app/logs          # audit trail (no personal data) persists on the host
+    restart: unless-stopped
+
+  mlflow:                          # optional: browse experiment runs at http://localhost:5000
+    image: ghcr.io/mlflow/mlflow:latest
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:////mlflow/mlflow.db
+    ports: ["5000:5000"]
+    volumes:
+      - ./:/mlflow-src:ro
+      - mlflow-data:/mlflow
+    profiles: ["mlflow"]
+
+volumes:
+  mlflow-data:
